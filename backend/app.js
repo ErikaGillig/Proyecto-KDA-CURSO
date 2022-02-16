@@ -67,11 +67,6 @@ app.get('/', function (req, res) {
   });
 });
 
-app.get('/admin/novedades', function (req, res) {
-  res.render('../views/admin/novedades',{
-    layout: 'admin/layout',
-  });
-});
 
 
 
