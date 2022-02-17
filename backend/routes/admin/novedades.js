@@ -1,4 +1,5 @@
 var express = require('express');
+const { rawListeners } = require('../../models/bd');
 var router = express.Router();
 var novedadesModel = require('../../models/novedadesModel');
 
@@ -44,6 +45,40 @@ router.post('/agregar', async (req, res, next) => {
   }
 })
 
+router.get('/eliminar/:id', async (req, res, next) => {
+  var id = req.params.id;
+  await novedadesModel.deleteNovedadesById(id);
+  res.redirect('/admin/novedades');
+})
 
+router.get('/modificar/:id', async (req, res, next) => {
+  var id = req.params.id;
+  console.log(req.params.id);
+  var novedad = await novedadesModel.getNovedadesById(id);
+  
+  res.render('admin/modificar', {
+    layout: 'admin/layout',
+    novedad
+  })
+ 
+})
+
+router.post('/modificar', async (req, res, next) => {
+  try{
+    var obj = {
+      titulo: req.body.titulo,
+      subtitulo: req.body.subtitulo,
+      cuerpo: req.body.cuerpo
+    }
+    console.log(obj)
+
+    await novedadesModel.modificarNovedadById(obj,
+      req.body.id);
+      res.redirect('/admin/novedades');
+
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 module.exports = router;
