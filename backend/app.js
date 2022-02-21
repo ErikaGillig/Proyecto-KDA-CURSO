@@ -10,6 +10,8 @@ var mysql = require('mysql');
 require('dotenv').config();
 var pool = require('./models/bd');
 
+var fileUpload = require('express-fileupload');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -77,6 +79,10 @@ app.post('/ingresar', function (req, res) {
   res.redirect('/');
 });
 
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
