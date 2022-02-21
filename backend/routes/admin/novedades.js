@@ -70,6 +70,7 @@ router.post('/modificar', async (req, res, next) => {
       subtitulo: req.body.subtitulo,
       cuerpo: req.body.cuerpo
     }
+   
     console.log(obj)
 
     await novedadesModel.modificarNovedadById(obj,

@@ -30,7 +30,7 @@ async function getNovedadesById(id){
     return rows [0];
   }
   
-  async function modificarNovedadById(obj, id) {
+  async function modificarNovedadById (obj, id) {
     try {
       var query = 'update novedades set ? where id=?';
       var rows = await pool.query(query, [obj, id]);
@@ -39,10 +39,5 @@ async function getNovedadesById(id){
       throw error;
     }
   }
-
-
-
-
-
 
 module.exports = { getNovedades, insertNovedad, deleteNovedadesById, getNovedadesById, modificarNovedadById }
