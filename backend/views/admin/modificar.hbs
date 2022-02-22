@@ -5,15 +5,15 @@
             <form action="/admin/novedades/modificar" method="post" enctype="multipart/form-data">
                 <input= type="hidden" value="{{novedad.id}}" name="id">
 
-                    <div class="mb-3 row">
+                    <div class="mb-4 row">
                         <label for=""> Titulo </label>
                         <input type="text" class="form-control" name="titulo" value=" {{novedad.titulo}}">
                     </div>
-                     <div class="mb-3 row">
+                     <div class="mb-4 row">
                         <label for=""> Sub-Titulo </label>
                         <input type="text" class="form-control" name="titulo" value=" {{novedad.subtitulo}}">
                     </div>
-                     <div class="mb-3 row">
+                     <div class="mb-4 row">
                          <label for=""> Cuerpo </label>
                          <textarea class="form-control" name="cuerpo">{{novedad.cuerpo}}
                         </textarea>

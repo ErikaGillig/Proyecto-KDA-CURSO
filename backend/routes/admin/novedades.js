@@ -31,14 +31,6 @@ router.get('/', async function (req, res, next) {
     }
   });
 
-
-
-
-
-
-
-
-
   console.log("novedades");
 
   res.render('admin/novedades', {
