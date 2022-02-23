@@ -117,13 +117,15 @@ router.post('/modificar', async (req, res, next) => {
     }
     
     var obj = {
+      id: req.body.id,
       titulo: req.body.titulo,
       subtitulo: req.body.subtitulo,
       cuerpo: req.body.cuerpo,
       img_id
     }
-    console.log(obj)
-    await novedadesModel.modificarNovedadById(obj, req.body.id);
+    console.log(obj);
+    
+    await novedadesModel.modificarNovedadById(obj, obj.id);
       res.redirect('/admin/novedades');
 
   } catch (error) {
